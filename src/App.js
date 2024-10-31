@@ -75,12 +75,12 @@ console.log(todoId);
   //   }
   // }
   
-  let setStorage = ()=>{
+  let setStorage = (()=>{
     console.log('setStorage 실행');
     
     let todoString = JSON.stringify(todo);
     window.localStorage.setItem('todo', todoString);
-  };
+  },[todo]);
 
 
 
@@ -93,7 +93,7 @@ console.log(todoId);
   
    useEffect(()=>{
     setStorage();
-  },[todo]) //최초 한 번 실행
+  },[setStorage]) //최초 한 번 실행
 
    useEffect(()=>{
     updateTodoId();
